@@ -1,0 +1,32 @@
+﻿<Window x:Class="ПР_Тестирование_Матрицы.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПР_Тестирование_Матрицы"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="600" MinWidth="1000" Background="AliceBlue">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1084*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dg1" d:ItemsSource="{d:SampleData ItemCount=2}" Margin="57,64,627,404" Grid.Column="1"/>
+        <DataGrid x:Name="dg2" d:ItemsSource="{d:SampleData ItemCount=2}" Margin="624,63,60,404" Grid.Column="1"/>
+        <TextBox x:Name="tb_stroke1" HorizontalAlignment="Left" Margin="65,29,0,0" TextWrapping="Wrap" Text="Строки" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox x:Name="tb_stolb1" HorizontalAlignment="Left" Margin="209,29,0,0" TextWrapping="Wrap" Text="Столбцы" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox Name="tb_stroke2" HorizontalAlignment="Left" Margin="627,30,0,0" TextWrapping="Wrap" Text="Строки" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <TextBox x:Name="tb_stolb2" HorizontalAlignment="Left" Margin="777,29,0,0" TextWrapping="Wrap" Text="Столбцы" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button x:Name="btn_create1" Content="Создать" HorizontalAlignment="Left" Margin="375,26,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btn_create1_Click"/>
+        <Button x:Name="btn_create2" Content="Создать" HorizontalAlignment="Left" Margin="946,26,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btn_create2_Click"/>
+        <Button x:Name="btn_save" Content="Сохранить данные" HorizontalAlignment="Left" Margin="490,228,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btn_save_Click"/>
+        <Button x:Name="btn_multiply" Content="Умножить" HorizontalAlignment="Left" Margin="59,291,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Click="btn_multiply_Click"/>
+        <Button x:Name="btn_add" Content="Сложить" HorizontalAlignment="Left" Margin="347,294,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.505,0.378" Grid.Column="1" Click="btn_add_Click"/>
+        <Button x:Name="btn_subtract" Content="Вычесть" HorizontalAlignment="Left" Margin="200,293,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Click="btn_subtract_Click"/>
+        <Button x:Name="btn_transponirovanie" Content="Транспонировать" HorizontalAlignment="Left" Margin="846,292,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Click="btn_transponirovanie_Click"/>
+        <DataGrid x:Name="dg3" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Margin="291,367,285,38"/>
+        <Label Grid.Column="1" Content="Результат" HorizontalAlignment="Left" Margin="508,331,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Grid.Column="1" Content="Входные данные" HorizontalAlignment="Left" Margin="483,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
