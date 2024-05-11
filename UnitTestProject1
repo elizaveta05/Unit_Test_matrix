@@ -1,0 +1,80 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
+namespace UnitTestProject1
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        //тест 1
+        private int[,] AddMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            int rows = matrix1.GetLength(0);
+            int cols = matrix1.GetLength(1);
+            int[,] result = new int[rows, cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    result[i, j] = matrix1[i, j] + matrix2[i, j];
+                }
+            }
+
+            return result;
+        }
+
+        [TestMethod]
+        public void TestMethod1()
+        {
+            int[,] matrix1 = { { 1, 2 }, { 3, 4 } };
+            int[,] matrix2 = { { 5, 6 }, { 7, 8 } };
+            int[,] expected = { { 6, 8 }, { 10, 12 } };
+            int[,] result = AddMatrices(matrix1, matrix2);
+
+            CollectionAssert.AreEqual(expected, result, "Результат операции сложения матриц не соответствует ожидаемому");
+        }
+        //тест 2
+        private int[,] SubtractMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            int rows = matrix1.GetLength(0);
+            int cols = matrix1.GetLength(1);
+            int[,] result = new int[rows, cols];
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    result[i, j] = matrix1[i, j] - matrix2[i, j];
+                }
+            }
+
+            return result;
+        }
+        [TestMethod]
+        public void TestSubtractMatrices()
+        {
+            int[,] matrix1 = { { 4, 6 }, { 2, 8 } };
+            int[,] matrix2 = { { 2, 4 }, { 1, 3 } };
+            int[,] expected = { { 2, 2 }, { 1, 5 } };
+
+            int[,] result = SubtractMatrices(matrix1, matrix2);
+
+            CollectionAssert.AreEqual(expected, result, "Результат операции вычитания матриц не соответствует ожидаемому");
+        }
+
+        //тест 3
+        [TestMethod]
+        public void TestIncorrectAddMatrices()
+        {
+            int[,] matrix1 = { { 1, 2 }, { 3, 4 } };
+            int[,] matrix2 = { { 5, 6 }, { 7, 8 } };
+            int[,] expected = { { 7, 8 }, { 10, 12 } }; // Ожидаемый результат задан с ошибкой
+
+            int[,] result = AddMatrices(matrix1, matrix2);
+
+            CollectionAssert.AreEqual(expected, result, "Результат операции сложения матриц не соответствует ожидаемому (намеренная ошибка)");
+        }
+    }
+
+}
